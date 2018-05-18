@@ -15,4 +15,6 @@ axios.defaults.baseURL = 'http://localhost:3000';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
+require('./Root');
+// require('./components/spa/SinglePageApplication');
+require('./advancedSearching/AdvancedSearching');

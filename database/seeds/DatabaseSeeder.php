@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             LanguagesTableSeeder::class,
             ProgrammingLanguagesTableSeeder::class,
-            DevelopersTableSeeder::class
+            DevelopersTableSeeder::class,
+            CategoriesTableSeeder::class,
+            TestPostsTableSeeder::class
         ]);
     }
 }
