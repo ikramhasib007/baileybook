@@ -10,7 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('developers/language/{id}', 'DevelopersController@language');
+Route::get('developers/programming_language/{id}', 'DevelopersController@programmingLanguage');
+Route::resource('developers', 'DevelopersController');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('languages', 'LanguagesController');
+
+Route::resource('programming_languages', 'ProgrammingLanguagesController');
+
+
+Route::get('bailers/spa', 'BailersController@spa')->name('spa');
+Route::get('bailers/search', 'BailersController@search')->name('search');
+Route::resource('bailers', 'BailersController');
+
+Route::get('/', 'HomeController@getIndex');
