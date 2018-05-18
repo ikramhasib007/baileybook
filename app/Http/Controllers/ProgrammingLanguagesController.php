@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProgrammingLanguage;
 
 class ProgrammingLanguagesController extends Controller
 {
@@ -13,7 +14,8 @@ class ProgrammingLanguagesController extends Controller
      */
     public function index()
     {
-        //
+        $programminglanguages = ProgrammingLanguage::all();
+        return response($programminglanguages);
     }
 
     /**
@@ -45,7 +47,8 @@ class ProgrammingLanguagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $programminglanguages = ProgrammingLanguage::find($id);
+        return $programminglanguages->developers;
     }
 
     /**

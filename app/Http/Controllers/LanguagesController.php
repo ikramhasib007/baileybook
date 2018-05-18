@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Language;
 
 class LanguagesController extends Controller
 {
@@ -13,7 +14,8 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-        //
+        $languages = Language::all();
+        return response($languages);
     }
 
     /**
@@ -45,7 +47,8 @@ class LanguagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $languages = Language::find($id);
+        return $languages->developers;
     }
 
     /**

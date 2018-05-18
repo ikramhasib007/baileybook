@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Developer;
 
 class DevelopersController extends Controller
 {
@@ -13,7 +14,26 @@ class DevelopersController extends Controller
      */
     public function index()
     {
-        //
+        $allDevelopers = [];
+        $developers = Developer::all();
+        foreach($developers as $developer) {
+            $developer->programming_languages;
+            $developer->languages;
+            $allDevelopers[] = $developer;
+        }
+        return response($allDevelopers);
+    }
+
+    public function language($id)
+    {
+        $developers = Developer::find($id);
+        return $developers->languages;
+    }
+
+    public function programmingLanguage($id)
+    {
+        $developers = Developer::find($id);
+        return $developers->programming_languages;
     }
 
     /**

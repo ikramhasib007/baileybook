@@ -15,7 +15,10 @@ class CreateDeveloperProgrammingLanguageTable extends Migration
     {
         Schema::create('developer_programming_language', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->unsignedInteger('developer_id');
+            $table->foreign('developer_id')->references('id')->on('developers');
+            $table->unsignedInteger('programming_language_id');
+            $table->foreign('programming_language_id')->references('id')->on('programming_languages');
         });
     }
 
