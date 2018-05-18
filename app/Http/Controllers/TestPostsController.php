@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TestPost;
+use App\Category;
 
 class TestPostsController extends Controller
 {
@@ -13,7 +15,13 @@ class TestPostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = TestPost::all();
+        $allposts = [];
+        foreach($posts as $post){
+            $post->categoryName = Category::find($post->category_id)->name;
+            $allposts[] =$post;
+        }
+        return response($allposts);
     }
 
     /**
@@ -34,7 +42,20 @@ class TestPostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new TestPost;
+        $request->validate([
+            'title' => 'required|unique:test_posts|max:255',
+            'category_id' => 'required|integer',
+            'body' => 'required'
+        ]);
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->slug = str_slug($request->title);
+        $post->body = $request->body;
+        
+        $post->save();
+        $post->categoryName = Category::find($post->category_id)->name;
+        return response($post);
     }
 
     /**
@@ -68,7 +89,22 @@ class TestPostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255|unique:test_posts,title,'.$id.'id',
+            'category_id' => 'required|integer',
+            'body' => 'required'
+        ]);
+            
+        $post = TestPost::find($id);
+        
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->slug = str_slug($request->title);
+        $post->body = $request->body;
+        
+        $post->save();
+        $post->categoryName = Category::find($post->category_id)->name;
+        return $post;
     }
 
     /**
@@ -79,6 +115,8 @@ class TestPostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = TestPost::find($id);
+        $post->delete();
+        return $post;
     }
 }

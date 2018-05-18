@@ -18,6 +18,9 @@ Route::resource('languages', 'LanguagesController');
 
 Route::resource('programming_languages', 'ProgrammingLanguagesController');
 
+Route::resource('testposts', 'TestPostsController', ['except' => 'create']);
+Route::resource('categories', 'CategoriesController');
+
 
 Route::get('bailers/spa', 'BailersController@spa')->name('spa');
 Route::get('bailers/search', 'BailersController@search')->name('search');
