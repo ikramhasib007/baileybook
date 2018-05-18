@@ -18,7 +18,7 @@ class DevelopersTableSeeder extends Seeder
         foreach (range(1,100) as $index) {
 
             $developers = new App\Developer([
-                'name' => $faker->name($gender = null|'male'|'female'),
+                'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
                 'created_at' => now(),
                 'updated_at' => now()
