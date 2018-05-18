@@ -12,8 +12,7 @@ export const startAddPost = (postData = {}) => {
   } = postData;
   const post = {title, category_id, body};
   return (dispatch) => {
-    return axios.post('/api/posts', post).then((response) => {
-      console.log(response);
+    return axios.post('/testposts', post).then((response) => {
       dispatch(addPost(response.data));
     }).catch((error) => {
       console.log(error.message);
@@ -28,7 +27,7 @@ export const removePost = (id) => ({
 // Start remove post
 export const startRemovePost = (id) => {
   return (dispatch) => {
-    return axios.delete(`/api/posts/${id}`).then(() => {
+    return axios.delete(`/testposts/${id}`).then(() => {
       dispatch(removePost(id));
     }).catch((error) => {
       console.log(error.message);
@@ -44,8 +43,7 @@ export const editPost = (id, updates) => ({
 // Start edit post
 export const startEditPost = (id, post) => {
   return (dispatch) => {
-    return axios.put(`/api/posts/${id}`, post).then((response) => {
-      console.log(response);
+    return axios.put(`/testposts/${id}`, post).then((response) => {
       dispatch(editPost(id, response.data));
     }).catch((error) => {
       console.log(error.message);
@@ -60,8 +58,10 @@ export const setPosts = (posts) => ({
 // Start Set Posts
 export const startSetPosts = () => {
   return (dispatch) => {
-    return axios.get('/api/posts').then((response) => {
+    return axios.get('/testposts').then((response) => {
       dispatch(setPosts(response.data));
+    }).catch(error => {
+      console.log(error.message);
     });
   }
 };

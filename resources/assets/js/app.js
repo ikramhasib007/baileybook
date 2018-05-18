@@ -16,5 +16,5 @@ axios.defaults.baseURL = 'http://localhost:3000';
  */
 
 require('./Root');
-// require('./components/spa/SinglePageApplication');
+require('./spa/SinglePageApplication');
 require('./advancedSearching/AdvancedSearching');

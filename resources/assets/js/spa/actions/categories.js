@@ -29,8 +29,10 @@ export const addCategory = ({
   // Start Set Categories
   export const startSetCategories = () => {
     return (dispatch) => {
-      return axios.get('/api/category').then((response) => {
+      return axios.get('/categories').then((response) => {
         dispatch(setCategories(response.data));
+      }).catch(error => {
+        console.log(error.message);
       });
     }
   };

@@ -8,8 +8,11 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item px-1 active">
+                <li class="nav-item px-1 {{ Request::path() === '/'? 'active':'' }}">
                     <a class="nav-link" href="/">Dashboard</a>
+                </li>
+                <li class="nav-item px-1 {{ Request::path() !== '/'? 'active':'' }}">
+                    <a class="nav-link" href="/bailers">Bailers</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

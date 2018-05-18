@@ -65,6 +65,7 @@ export class Developers extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Programming languages</th>
               <th scope="col">Languages</th>
@@ -77,6 +78,7 @@ export class Developers extends Component {
               .map((developer, i) => {
                 return <tr key={developer.id}>
                   <th scope="row">{i + 1}</th>
+                  <td>{developer.name}</td>
                   <td>{developer.email}</td>
                   <td>
                     {

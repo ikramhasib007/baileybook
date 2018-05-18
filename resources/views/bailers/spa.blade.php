@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="spa">spa</div>
+    <div id="spa">
+        <div class="loader"><img src="/images/loader.gif"/></div>
+    </div>
 @endsection
