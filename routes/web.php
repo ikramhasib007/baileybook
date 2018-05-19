@@ -26,4 +26,7 @@ Route::get('bailers/spa', 'BailersController@spa')->name('spa');
 Route::get('bailers/search', 'BailersController@search')->name('search');
 Route::resource('bailers', 'BailersController');
 
-Route::get('/', 'HomeController@getIndex');
+// Route::get('/', 'HomeController@getIndex');
+Route::get('/', function() {
+    return redirect('/bailers');
+});
