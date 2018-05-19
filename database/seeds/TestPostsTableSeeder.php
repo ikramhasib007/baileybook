@@ -11,6 +11,6 @@ class TestPostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\TestPost::class, 3)->create();
+        factory(App\TestPost::class, 1)->create();
     }
 }

@@ -8,7 +8,7 @@ export const startSetLanguages = () => {
         return axios.get('/languages').then(response => {
             dispatch(setLanguages(response.data));
         }).catch(error => {
-            console.log(error.message);
+            //console.log(error.message);
         });
     }
 }

@@ -8,7 +8,7 @@ export const startSetDevelopers = () => {
         return axios.get('/developers').then((response) => {
             dispatch(setDevelopers(response.data));
         }).catch((error) => {
-            console.log(error.message);
+            //console.log(error.message);
         });
     }
 };

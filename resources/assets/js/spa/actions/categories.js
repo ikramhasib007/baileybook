@@ -32,7 +32,7 @@ export const addCategory = ({
       return axios.get('/categories').then((response) => {
         dispatch(setCategories(response.data));
       }).catch(error => {
-        console.log(error.message);
+        //console.log(error.message);
       });
     }
   };

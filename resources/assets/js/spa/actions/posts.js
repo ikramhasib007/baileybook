@@ -15,7 +15,7 @@ export const startAddPost = (postData = {}) => {
     return axios.post('/testposts', post).then((response) => {
       dispatch(addPost(response.data));
     }).catch((error) => {
-      console.log(error.message);
+      //console.log(error.message);
     });
   };
 };
@@ -30,7 +30,7 @@ export const startRemovePost = (id) => {
     return axios.delete(`/testposts/${id}`).then(() => {
       dispatch(removePost(id));
     }).catch((error) => {
-      console.log(error.message);
+      //console.log(error.message);
     });
   };
 };
@@ -46,7 +46,7 @@ export const startEditPost = (id, post) => {
     return axios.put(`/testposts/${id}`, post).then((response) => {
       dispatch(editPost(id, response.data));
     }).catch((error) => {
-      console.log(error.message);
+      //console.log(error.message);
     });
   };
 };
@@ -61,7 +61,7 @@ export const startSetPosts = () => {
     return axios.get('/testposts').then((response) => {
       dispatch(setPosts(response.data));
     }).catch(error => {
-      console.log(error.message);
+      //console.log(error.message);
     });
   }
 };

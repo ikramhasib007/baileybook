@@ -8,7 +8,7 @@ export const startSetProgrammingLanguages = () => {
         return axios.get('/programming_languages').then(response => {
             dispatch(setProgrammingLanguages(response.data));
         }).catch(error => {
-            console.log(error.message);
+            //console.log(error.message);
         });
     }
 }
